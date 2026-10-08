@@ -15,7 +15,7 @@ export default {
             await sock.sendMessage(
                 chat,
                 {
-                    text: '❌ Respondé a un sticker con /toimg'
+                    text: 'Respondé a un sticker con /toimg'
                 }
             )
 

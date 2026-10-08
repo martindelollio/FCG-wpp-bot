@@ -126,7 +126,7 @@ export default {
             await sock.sendMessage(
                 chat,
                 {
-                    text: '❌ No pude descargar ese video. Puede que sea privado, requiera iniciar sesión, que la plataforma haya cambiado algo o simplemente seas idota.'
+                    text: 'No pude descargar ese video. Puede que sea privado, requiera iniciar sesión, que la plataforma haya cambiado algo o simplemente seas idota.'
                 }
             )
 

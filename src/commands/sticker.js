@@ -26,7 +26,7 @@ export default {
             await sock.sendMessage(
                 mensaje.key.remoteJid,
                 {
-                    text: '❌ Respondé a una imagen o video con /sticker'
+                    text: 'Respondé a una imagen o video con /sticker'
                 }
             )
 
