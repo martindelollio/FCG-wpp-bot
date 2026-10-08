@@ -22,10 +22,10 @@ export async function convertirAVozWhatsApp(
         )
 
     const entrada =
-        path.join(
-            carpeta,
-            'entrada.wav'
-        )
+    path.join(
+        carpeta,
+        'entrada.mp3'
+    )
 
     const salida =
         path.join(

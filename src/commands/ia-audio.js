@@ -178,7 +178,8 @@ export default {
 
             const audio =
                 await generarVoz({
-                    texto: respuesta
+                    texto: respuesta,
+                    voiceId: '933563129e564b19a115bedd57b7406a'
                 })
 
 
