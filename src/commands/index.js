@@ -5,6 +5,7 @@ import sticker from './sticker.js'
 import bisagra from './bisagra.js'
 import video from './video.js'
 import toimg from './toimg.js'
+import violar from './violar.js'
 
 
 export const comandos = {
@@ -17,5 +18,7 @@ export const comandos = {
     b:bisagra,
     video,
     v:video,
-    toimg
+    toimg,
+    violar,
+    fede:violar
 }
