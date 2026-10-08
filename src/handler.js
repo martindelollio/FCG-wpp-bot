@@ -4,7 +4,8 @@ export async function manejarMensaje(sock, mensaje) {
 
     const texto =
         mensaje.message?.conversation ||
-        mensaje.message?.extendedTextMessage?.text
+        mensaje.message?.extendedTextMessage?.text ||
+        mensaje.message?.imageMessage?.caption
 
     if (!texto) {
         return

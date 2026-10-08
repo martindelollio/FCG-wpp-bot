@@ -1,78 +1,167 @@
 import { downloadMediaMessage } from '@whiskeysockets/baileys'
-import sharp from 'sharp'
+import ffmpeg from 'fluent-ffmpeg'
+import fs from 'fs/promises'
+import os from 'os'
+import path from 'path'
 
 export default {
 
     async ejecutar({ sock, mensaje }) {
 
-        const mensajeCitado =
+        // ¿Hay un mensaje citado?
+        const citado =
             mensaje.message?.extendedTextMessage?.contextInfo?.quotedMessage
 
-        if (!mensajeCitado) {
+        // Buscamos imagen o video
+        const imagen =
+            citado?.imageMessage ||
+            mensaje.message?.imageMessage
+
+        const video =
+            citado?.videoMessage ||
+            mensaje.message?.videoMessage
+
+        if (!imagen && !video) {
 
             await sock.sendMessage(
                 mensaje.key.remoteJid,
                 {
-                    text: '❌ Tenés que responder a una imagen con /sticker'
+                    text: '❌ Respondé a una imagen o video con /sticker'
                 }
             )
 
             return
         }
 
-        const imagen = mensajeCitado.imageMessage
+        // ------------------------------------------------
+        // IMAGEN
+        // ------------------------------------------------
 
-        if (!imagen) {
+        if (imagen) {
 
-            await sock.sendMessage(
-                mensaje.key.remoteJid,
-                {
-                    text: '❌ El mensaje citado no contiene una imagen.'
-                }
+            console.log('🖼️ Creando sticker de imagen...')
+
+            const mensajeDescarga = citado
+                ? { message: citado }
+                : mensaje
+
+            const buffer = await downloadMediaMessage(
+                mensajeDescarga,
+                'buffer',
+                {}
             )
 
-            return
-        }
+            // Creamos archivo temporal
+            const carpeta = await fs.mkdtemp(
+                path.join(os.tmpdir(), 'fcgbot-')
+            )
 
-        console.log('🖼️ Imagen encontrada')
-        console.log('📐 Tamaño:', imagen.width, 'x', imagen.height)
-        console.log('📦 Tipo:', imagen.mimetype)
+            const entrada = path.join(carpeta, 'imagen.jpg')
+            const salida = path.join(carpeta, 'sticker.webp')
 
-        const buffer = await downloadMediaMessage(
-            {
-                message: mensajeCitado
-            },
-            'buffer',
-            {}
-        )
+            await fs.writeFile(entrada, buffer)
 
-        console.log('✅ Imagen descargada')
-        console.log('📦 Bytes:', buffer.length)
+            // Convertimos a WebP
+            await new Promise((resolve, reject) => {
 
-        console.log('🔄 Convirtiendo a WebP...')
+                ffmpeg(entrada)
+                    .outputOptions([
+                        '-vcodec libwebp',
+                        '-vf',
+                        'scale=320:320:force_original_aspect_ratio=decrease,pad=320:320:(ow-iw)/2:(oh-ih)/2:color=white@0',
+                        '-an'
+                    ])
+                    .toFormat('webp')
+                    .on('end', resolve)
+                    .on('error', reject)
+                    .save(salida)
 
-        const sticker = await sharp(buffer)
-            .resize(512, 512, {
-                fit: 'contain'
             })
-            .webp()
-            .toBuffer()
 
-        console.log('✅ Sticker convertido')
-        console.log('📦 Bytes del WebP:', sticker.length)
+            const sticker = await fs.readFile(salida)
 
-        await sock.sendMessage(
-            mensaje.key.remoteJid,
-            {
-                sticker: sticker
-            }
-        )
+            // Lo mandamos
+            await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    sticker
+                }
+            )
 
-    console.log('🎉 Sticker enviado')
+            // Limpiamos archivos temporales
+            await fs.rm(carpeta, {
+                recursive: true,
+                force: true
+            })
 
-        console.log('✅ Sticker convertido')
-        console.log('📦 Bytes del WebP:', sticker.length)
+            console.log('✅ Sticker enviado')
 
+            return
+        }
+
+        // ------------------------------------------------
+        // VIDEO
+        // ------------------------------------------------
+
+        if (video) {
+
+            console.log('🎥 Creando sticker animado...')
+
+            const mensajeDescarga = citado
+                ? { message: citado }
+                : mensaje
+
+            const buffer = await downloadMediaMessage(
+                mensajeDescarga,
+                'buffer',
+                {}
+            )
+
+            const carpeta = await fs.mkdtemp(
+                path.join(os.tmpdir(), 'fcgbot-')
+            )
+
+            const entrada = path.join(carpeta, 'video.mp4')
+            const salida = path.join(carpeta, 'sticker.webp')
+
+            await fs.writeFile(entrada, buffer)
+
+            // Video → WebP animado
+            await new Promise((resolve, reject) => {
+
+                ffmpeg(entrada)
+                    .outputOptions([
+                        '-vcodec libwebp',
+                        '-vf',
+                        'scale=320:320:force_original_aspect_ratio=decrease,pad=320:320:(ow-iw)/2:(oh-ih)/2:color=white@0,fps=15',
+                        '-loop 0',
+                        '-t 5',
+                        '-an'
+                    ])
+                    .toFormat('webp')
+                    .on('end', resolve)
+                    .on('error', reject)
+                    .save(salida)
+
+            })
+
+            const sticker = await fs.readFile(salida)
+
+            await sock.sendMessage(
+                mensaje.key.remoteJid,
+                {
+                    sticker
+                }
+            )
+
+            await fs.rm(carpeta, {
+                recursive: true,
+                force: true
+            })
+
+            console.log('✅ Sticker animado enviado')
+
+            return
+        }
     }
-
 }
