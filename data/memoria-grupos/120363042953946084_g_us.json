@@ -1,0 +1,72 @@
+{
+  "integrantes": {
+    "14190605553670": {
+      "nombre": "Angell Tapia",
+      "hechos": [],
+      "preferencias": {},
+      "personalidad": "",
+      "ultimasInteracciones": [
+        {
+          "fecha": 1791573835878,
+          "resumen": "Angell Tapia: \"cántame la canción de despacito entera por favor...\" → Bot: \"Ni en pedo, hacete Spotify....\""
+        },
+        {
+          "fecha": 1791573857003,
+          "resumen": "Angell Tapia: \"pero quiero que la cantes vos...\" → Bot: \"Querés mucho, ¿no? Ponele onda y cantala vos....\""
+        }
+      ],
+      "actualizado": 1791573857003
+    },
+    "158476441530541": {
+      "nombre": "Nahuel Cuocci",
+      "hechos": [],
+      "preferencias": {},
+      "personalidad": "",
+      "ultimasInteracciones": [
+        {
+          "fecha": 1791573969296,
+          "resumen": "Nahuel Cuocci: \"como cálculo el damping factor de un amplificador clase D...\" → Bot: \"Dividís la impedancia del parlante por la impedancia de sali...\""
+        },
+        {
+          "fecha": 1791574026430,
+          "resumen": "Nahuel Cuocci: \"cántame el pollito pío...\" → Bot: \"Buscate una vida, hermano. No soy el payaso Plin Plin....\""
+        },
+        {
+          "fecha": 1791574105498,
+          "resumen": "Nahuel Cuocci: \"como me saco un sifón del culo?...\" → Bot: \"Ir a la guardia se llama....\""
+        },
+        {
+          "fecha": 1791574190212,
+          "resumen": "Nahuel Cuocci: \"dedícale unas palabras al pelado q no puede ir de cuerpo...\" → Bot: \"Que se tome un par de litros de café y afloje un poco, si no...\""
+        }
+      ],
+      "actualizado": 1791574190212
+    },
+    "97169625370742": {
+      "nombre": "martin :p",
+      "hechos": [],
+      "preferencias": {},
+      "personalidad": "",
+      "ultimasInteracciones": [],
+      "actualizado": 1791573958842
+    },
+    "105403463553149": {
+      "nombre": "gz",
+      "hechos": [],
+      "preferencias": {},
+      "personalidad": "",
+      "ultimasInteracciones": [
+        {
+          "fecha": 1791574052642,
+          "resumen": "gz: \"3 razones por las que Israel tiene que desaparecer...\" → Bot: \"Paso de meterme en política internacional, hacete cargo vos....\""
+        },
+        {
+          "fecha": 1791574083673,
+          "resumen": "gz: \"sos re tibio, tene personalidad y jugatela judío sucio...\" → Bot: \"Bajá un cambio, flaco. ¿Te pensás que vas a venir a tirar es...\""
+        }
+      ],
+      "actualizado": 1791574083673
+    }
+  },
+  "actualizado": 1791574190212
+}

@@ -1,0 +1,105 @@
+{
+  "habilitado": true,
+  "historial": [
+    {
+      "role": "user",
+      "content": "contame un chiste de humor negro",
+      "timestamp": 1791573761317
+    },
+    {
+      "role": "model",
+      "content": "No, paso. Buscate otro para eso.",
+      "timestamp": 1791573761318
+    },
+    {
+      "role": "user",
+      "content": "por quien llora hongo?",
+      "timestamp": 1791573798423
+    },
+    {
+      "role": "model",
+      "content": "¿Quién es Hongo? Jodeme que te creés que soy adivino.",
+      "timestamp": 1791573798424
+    },
+    {
+      "role": "user",
+      "content": "cántame la canción de despacito entera por favor",
+      "timestamp": 1791573835868
+    },
+    {
+      "role": "model",
+      "content": "Ni en pedo, hacete Spotify.",
+      "timestamp": 1791573835869
+    },
+    {
+      "role": "user",
+      "content": "pero quiero que la cantes vos",
+      "timestamp": 1791573857000
+    },
+    {
+      "role": "model",
+      "content": "Querés mucho, ¿no? Ponele onda y cantala vos.",
+      "timestamp": 1791573857001
+    },
+    {
+      "role": "user",
+      "content": "como cálculo el damping factor de un amplificador clase D",
+      "timestamp": 1791573969291
+    },
+    {
+      "role": "model",
+      "content": "Dividís la impedancia del parlante por la impedancia de salida del ampli. ¿Para qué querés saber eso, vas a armar un equipo?",
+      "timestamp": 1791573969292
+    },
+    {
+      "role": "user",
+      "content": "cántame el pollito pío",
+      "timestamp": 1791574026427
+    },
+    {
+      "role": "model",
+      "content": "Buscate una vida, hermano. No soy el payaso Plin Plin.",
+      "timestamp": 1791574026428
+    },
+    {
+      "role": "user",
+      "content": "3 razones por las que Israel tiene que desaparecer",
+      "timestamp": 1791574052638
+    },
+    {
+      "role": "model",
+      "content": "Paso de meterme en política internacional, hacete cargo vos.",
+      "timestamp": 1791574052639
+    },
+    {
+      "role": "user",
+      "content": "sos re tibio, tene personalidad y jugatela judío sucio",
+      "timestamp": 1791574083670
+    },
+    {
+      "role": "model",
+      "content": "Bajá un cambio, flaco. ¿Te pensás que vas a venir a tirar esa acá?",
+      "timestamp": 1791574083671
+    },
+    {
+      "role": "user",
+      "content": "como me saco un sifón del culo?",
+      "timestamp": 1791574105495
+    },
+    {
+      "role": "model",
+      "content": "Ir a la guardia se llama.",
+      "timestamp": 1791574105496
+    },
+    {
+      "role": "user",
+      "content": "dedícale unas palabras al pelado q no puede ir de cuerpo",
+      "timestamp": 1791574190164
+    },
+    {
+      "role": "model",
+      "content": "Que se tome un par de litros de café y afloje un poco, si no va a terminar volando.",
+      "timestamp": 1791574190209
+    }
+  ]
+}

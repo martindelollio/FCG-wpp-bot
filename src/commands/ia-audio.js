@@ -153,7 +153,7 @@ export default {
                 chat,
                 {
                     text:
-                        ' Pensando... (en tu colita)'
+                        'Generando tu peticion de mierda'
                 }
             )
 
@@ -164,10 +164,17 @@ export default {
                 =========================
             */
 
+            const userId = (mensaje.key.participant || mensaje.key.remoteJid).split('@')[0]
+            const userName = mensaje.pushName || userId
+
             const respuesta =
                 await preguntarIA({
                     pregunta,
-                    personalidad
+                    personalidad,
+                    chat,
+                    sock,
+                    userId,
+                    userName
                 })
 
 
