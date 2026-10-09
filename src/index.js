@@ -1,3 +1,4 @@
+import qrcode from 'qrcode-terminal'
 import makeWASocket, {
     useMultiFileAuthState
 } from '@whiskeysockets/baileys'
@@ -10,21 +11,38 @@ async function iniciarBot() {
         await useMultiFileAuthState('./auth')
 
     const sock = makeWASocket({
-        auth: state
+        auth: state,
+        browser: ['FCGbot', 'Chrome', '120.0.0']
     })
 
     sock.ev.on('creds.update', saveCreds)
 
-    sock.ev.on('connection.update', (update) => {
+    sock.ev.on('connection.update', async (update) => {
+        const { connection, lastDisconnect, qr } = update
 
-        const { connection } = update
+        if (qr) {
+            console.log('📱 Escanea el código QR para conectar:')
+            qrcode.generate(qr, { small: true })
+            console.log('')
+            console.log('Si el QR no funciona, usa emparejamiento con número:')
+            console.log('  En WhatsApp: Configuración > Dispositivos vinculados > Vincular dispositivo')
+            console.log('  Luego ejecuta: node pair.js TU_NUMERO (ej: 5491123456789)')
+        }
 
         if (connection === 'open') {
             console.log('✅ ¡Bot conectado a WhatsApp!')
         }
 
         if (connection === 'close') {
-            console.log('❌ Conexión cerrada')
+            const codigo =
+                lastDisconnect?.error?.output?.statusCode
+
+            console.log('❌ Conexión cerrada. Código:', codigo)
+
+            if (codigo === 515) {
+                console.log('🔄 Reiniciando conexión después del emparejamiento...')
+                setTimeout(() => iniciarBot(), 1000)
+            }
         }
     })
 

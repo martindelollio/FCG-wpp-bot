@@ -48,6 +48,7 @@ export default {
 
         let personalidad
         let pregunta
+        let voiceId
 
 
         /*
@@ -100,6 +101,9 @@ export default {
             personalidad =
                 preset.prompt
 
+            voiceId =
+                preset.voiceId
+
 
             pregunta =
                 argumentos
@@ -115,6 +119,9 @@ export default {
 
             pregunta =
                 argumentos.join(' ')
+
+            voiceId =
+                personalidades.momo.voiceId
         }
 
 
@@ -179,7 +186,7 @@ export default {
             const audio =
                 await generarVoz({
                     texto: respuesta,
-                    voiceId: '933563129e564b19a115bedd57b7406a'
+                    voiceId
                 })
 
 

@@ -27,18 +27,20 @@ export async function preguntarIA({
     pregunta,
     personalidad
 }) {
-
     console.log('🤖 Enviando consulta a Gemini...')
+
+    const systemInstruction =
+        typeof personalidad === 'string' &&
+        personalidad.trim()
+            ? personalidad
+            : 'Sos FCGbot, un bot argentino. Respondé de forma breve y natural, como en un grupo de WhatsApp.'
 
     const response =
         await ai.models.generateContent({
-
             model: 'gemini-3.5-flash-lite',
-
             contents: pregunta,
-
             config: {
-                systemInstruction: personalidad,
+                systemInstruction,
                 temperature: 0.9,
                 maxOutputTokens: 120
             }

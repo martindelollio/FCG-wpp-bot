@@ -10,6 +10,8 @@ import ia from './ia.js'
 import personalidad from './personalidad.js'
 import resetPersonality from './reset-personality.js'
 import iaAudio from './ia-audio.js'
+import log from './log.js'
+import tomp3 from './tomp3.js'
 
 export const comandos = {
     ping,
@@ -24,10 +26,11 @@ export const comandos = {
     toimg,
     violar,
     fede: violar,
-    ia,
+    'ia':iaAudio,
     personalidad,
     'reset-personality': resetPersonality,
     r: resetPersonality,
-    iaAudio,
     'ia-audio': iaAudio,
+    log,
+    tomp3,
 }

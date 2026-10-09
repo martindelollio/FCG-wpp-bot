@@ -73,10 +73,11 @@ export default {
         }
 
         // Guarda la personalidad para este grupo
-        await cambiarPersonalidad(
-            chat,
-            personalidad
-        )
+        await cambiarPersonalidad(chat, {
+            nombre,
+            prompt: personalidad.prompt,
+            voiceId: personalidad.voiceId
+        })
 
         await sock.sendMessage(
             chat,

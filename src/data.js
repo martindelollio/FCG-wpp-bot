@@ -81,18 +81,14 @@ export async function obtenerPersonalidad(chat) {
 }
 
 
-export async function cambiarPersonalidad(
-    chat,
-    personalidad
-) {
+export async function cambiarPersonalidad(chat, perfil) {
     const grupos = await cargarGrupos()
 
     if (!grupos[chat]) {
         grupos[chat] = {}
     }
 
-    grupos[chat].personalidad =
-        personalidad
+    grupos[chat].personalidad = perfil
 
     await guardarGrupos(grupos)
 }
@@ -113,4 +109,17 @@ export async function resetearPersonalidad(chat) {
 
 export {
     personalidadDefault
+}
+export async function obtenerPerfilPersonalidad(chat) {
+    const grupos = await cargarGrupos()
+    const perfil = grupos[chat]?.personalidad
+
+    if (typeof perfil === 'string') {
+        return {
+            prompt: perfil,
+            voiceId: null
+        }
+    }
+
+    return perfil
 }

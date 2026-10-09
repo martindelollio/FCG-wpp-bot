@@ -6,52 +6,36 @@ export default {
         const chat = mensaje.key.remoteJid
 
         const menu = `
-╭━━━〔 🤖 FCG BOT 〕━━━╮
-┃
-┃  📌 COMANDOS
-┃
-┃  🏓 /ping
-┃  🎉 /joda
-┃  🔩 /bisagra
-┃  🔩 /b
-┃
-┃  🎥 /video
-┃  🎥 /v
-┃
-┃  🖼️ /sticker
-┃  🖼️ /s
-┃  🖼️ /toimg
-┃
-┃  🗿 /violar
-┃  🗿 /fede
-┃
-┃  🤖 /ia
-┃  🔊 /ia-audio
-┃
-┃  🧠 /personalidad
-┃  🔄 /reset-personality
-┃  🔄 /r
-┃
-┃  ℹ️ /menu
-┃
-╰━━━━━━━━━━━━━━━━━━━━╯
+=== FCG BOT ===
 
-🤖 *IA*
-/ia <pregunta>
-/ia [momo] <pregunta>
+COMANDOS
+  /ping
+  /joda
+  /bisagra, /b [IMPORTANTE]
+  /video, /v
+  /tomp3
+  /sticker, /s
+  /toimg
+  /violar, /fede
+  /ia
+  /personalidad
+  /reset-personality, /r
+  /log
+  /menu
 
-/ia-audio <pregunta>
-/ia-audio [momo] <pregunta>
+IA
+  /ia <pregunta>
+  /ia [momo] <pregunta>
+  /ia-audio <pregunta>
+  /ia-audio [momo] <pregunta>
 
-🧠 *PERSONALIDADES*
-/personalidad
-→ Ver personalidad actual
+PERSONALIDADES
+  /personalidad
+  /personalidad momo
+  /reset-personality
 
-/personalidad momo
-→ Cambiar personalidad del grupo
-
-/reset-personality
-→ Restaurar personalidad original
+SISTEMA
+  /log
 `
 
         await sock.sendMessage(
