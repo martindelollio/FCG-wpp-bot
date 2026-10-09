@@ -1,0 +1,87 @@
+{
+  "total": {
+    "input": 6282,
+    "output": 77,
+    "total": 6359
+  },
+  "porUsuario": {
+    "14190605553670": {
+      "nombre": "Angell Tapia",
+      "input": 5410,
+      "output": 69,
+      "total": 5479,
+      "requests": 5
+    },
+    "97169625370742": {
+      "nombre": "martin :p",
+      "input": 872,
+      "output": 8,
+      "total": 880,
+      "requests": 1
+    }
+  },
+  "porModelo": {
+    "gemini-3.5-flash-lite": {
+      "input": 6282,
+      "output": 77,
+      "total": 6359,
+      "requests": 6
+    }
+  },
+  "historial": [
+    {
+      "timestamp": 1791575596512,
+      "userId": "14190605553670",
+      "userName": "Angell Tapia",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 1005,
+      "output": 12,
+      "total": 1017
+    },
+    {
+      "timestamp": 1791575668637,
+      "userId": "14190605553670",
+      "userName": "Angell Tapia",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 1050,
+      "output": 16,
+      "total": 1066
+    },
+    {
+      "timestamp": 1791575698546,
+      "userId": "14190605553670",
+      "userName": "Angell Tapia",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 1092,
+      "output": 16,
+      "total": 1108
+    },
+    {
+      "timestamp": 1791575715851,
+      "userId": "14190605553670",
+      "userName": "Angell Tapia",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 1140,
+      "output": 10,
+      "total": 1150
+    },
+    {
+      "timestamp": 1791575735822,
+      "userId": "14190605553670",
+      "userName": "Angell Tapia",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 1123,
+      "output": 15,
+      "total": 1138
+    },
+    {
+      "timestamp": 1791575964720,
+      "userId": "97169625370742",
+      "userName": "martin :p",
+      "modelo": "gemini-3.5-flash-lite",
+      "input": 872,
+      "output": 8,
+      "total": 880
+    }
+  ]
+}

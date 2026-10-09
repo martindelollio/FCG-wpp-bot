@@ -25,7 +25,7 @@ export default {
                 await sock.sendMessage(chat, { text: 'Solo admins pueden ver todas las memorias.' })
                 return
             }
-            await mostrarTodasMemorias(chat)
+            await mostrarTodasMemorias(sock, chat)
             return
         }
 
@@ -109,7 +109,7 @@ async function mostrarMemoria(sock, chat, userId, userName) {
     await sock.sendMessage(chat, { text: lineas.join('\n') })
 }
 
-async function mostrarTodasMemorias(chat) {
+async function mostrarTodasMemorias(sock, chat) {
     const todas = await obtenerTodosIntegrantes(chat)
     
     if (Object.keys(todas).length === 0) {
@@ -117,7 +117,7 @@ async function mostrarTodasMemorias(chat) {
         return
     }
 
-    const lineas = ['🧠 Todas las memorias del grupo', '']
+    const lineas = ['Todas las memorias del grupo', '']
 
     for (const [id, mem] of Object.entries(todas)) {
         lineas.push(`=== ${mem.nombre || id} (${mem.hechos.length} hechos) ===`)

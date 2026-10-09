@@ -28,6 +28,7 @@ import iaContexto from './ia-contexto.js'
 import iaContextoVer from './ia-contextover.js'
 import iaMemoria from './ia-memoria.js'
 import iaTokens from './ia-tokens.js'
+import luis from './luis.js'
 
 export const comandos = {
     ping,
@@ -65,4 +66,5 @@ export const comandos = {
     'ia-contextover': iaContextoVer,
     'ia-memoria': iaMemoria,
     'ia-tokens': iaTokens,
+    luis
 }
